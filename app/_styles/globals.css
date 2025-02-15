@@ -71,6 +71,15 @@
   .form-search-input {
     @apply font-bold text-2xl leading-[70px] text-black;
   }
+
+  /* Create form */
+  .create input {
+    @apply focus:outline-none border-[3px] border-black rounded-[50px] py-4 px-[17px]  md:text-[18px] leading-[21.11px] font-semibold text-black w-full;
+  }
+
+  .create textarea {
+    @apply focus:outline-none border-[3px] border-black rounded-[20px] py-4 px-[17px]  md:text-[18px] leading-[21.11px] font-semibold text-black w-full;
+  }
 }
 
 @layer utilities {
