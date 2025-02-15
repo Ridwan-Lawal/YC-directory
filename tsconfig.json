@@ -27,7 +27,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/(directory)/signin/page.js"
+    "app/(directory)/signin/page.js",
+    "app/(directory)/pitch/create"
   ],
   "exclude": ["node_modules"]
 }
