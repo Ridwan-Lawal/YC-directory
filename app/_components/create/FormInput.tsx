@@ -18,9 +18,7 @@ export default function FormInput({ children, label, error }: FormInputProps) {
           {label}
         </label>
 
-        <p className="error-msg text-color-primary italic text-xs font-medium">
-          {error}
-        </p>
+        <p className="error-msg ">{error}</p>
       </div>
 
       {children}

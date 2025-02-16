@@ -55,7 +55,7 @@
 
   /* pitch card */
   .pitch-card {
-    @apply max-w-[310px] md:max-w-[320px] mx-auto  py-6 flex flex-col justify-center px-5 rounded-[22px] border-4 border-black shadow-pitch-card  bg-white hover:bg-color-primary-fade hover:border-color-primary hover:shadow-color-primary cursor-pointer transition-colors  ease-in;
+    @apply mx-auto w-full max-w-[320px] py-6 flex flex-col justify-center px-5 rounded-[22px] border-4 border-black shadow-pitch-card  bg-white hover:bg-color-primary-fade hover:border-color-primary hover:shadow-color-primary cursor-pointer transition-colors  ease-in;
   }
 
   .pitch-card-text-1 {
@@ -79,6 +79,9 @@
 
   .create textarea {
     @apply focus:outline-none border-[3px] border-black rounded-[20px] py-4 px-[17px]  md:text-[18px] leading-[21.11px] font-semibold text-black w-full;
+  }
+  .create .error-msg {
+    @apply text-color-primary italic text-xs font-medium;
   }
 }
 
