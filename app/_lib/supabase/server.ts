@@ -1,3 +1,4 @@
+import { Database } from "@/database.types";
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 
@@ -27,3 +28,6 @@ export async function createClient() {
     }
   );
 }
+
+export type Pitch = Database['public']['Tables']['pitches']['Row']
+export type PitchInsert = Database['public']['Tables']['pitches']['Insert']

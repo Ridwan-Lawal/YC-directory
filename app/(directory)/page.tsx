@@ -2,11 +2,18 @@ import Header from "@/app/_ui/Header";
 import Pitches from "@/app/_components/pitches/Pitches";
 import React from "react";
 
-export default function Page() {
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: Promise<{ query: string }>;
+}) {
+  console.log(searchParams);
+  const filters = await searchParams;
+
   return (
     <div className="pb-12">
       <Header />
-      <Pitches />
+      <Pitches query={filters?.query} />
     </div>
   );
 }

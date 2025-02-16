@@ -45,8 +45,10 @@ export default function NavBar({ userAvatar }: NavProps) {
             isNavOpen ? "w-full px-6  " : "w-0 px-0 md:w-full "
           } transition-all duration-300 z-40 left-0`}
         >
-          <Link href="">
-            <li className="">Create</li>
+          <Link href="/pitch/create">
+            <li className="" onClick={() => setIsNavOpen(false)}>
+              Create
+            </li>
           </Link>
 
           <li className="text-color-logout">Logout</li>
