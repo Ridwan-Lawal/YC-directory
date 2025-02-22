@@ -4,6 +4,7 @@ import Image from "next/image";
 import { getBase64 } from "@/app/_lib/data-service";
 import { Pitch } from "@/app/_lib/supabase/server";
 import { getPitchCreatedTime } from "@/app/_lib/helper";
+import Link from "next/link";
 
 export default async function PitchCard({ pitch }: { pitch: Pitch }) {
   const baseAvatarImageUrl = await getBase64(pitch?.author_avatar);
@@ -72,7 +73,9 @@ export default async function PitchCard({ pitch }: { pitch: Pitch }) {
       <div className="flex items-center justify-between mt-5">
         <p className="pitch-card-text-1">{pitch?.category}</p>
 
-        <button className="pitch-card-details-btn">Details</button>
+        <Link href={`/pitch/${pitch?.id}`}>
+          <button className="pitch-card-details-btn">Details</button>
+        </Link>
       </div>
     </div>
   );

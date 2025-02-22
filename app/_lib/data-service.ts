@@ -37,3 +37,25 @@ export async function getPitches(query: string | undefined) {
 
   return pitches;
 }
+
+export async function getPitchById(pitchId: string) {
+  const supabase = await createClient();
+  //Step 1 - Checking if user is logged in
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    throw new Error("You must be signed it to get this data!");
+  }
+
+  // Step 4 - Getting data
+  const { data: pitch, error } = await supabase
+    .from("pitches")
+    .select("*")
+    .eq("id", pitchId);
+
+  if (error) throw new Error(error.message);
+
+  return pitch;
+}
