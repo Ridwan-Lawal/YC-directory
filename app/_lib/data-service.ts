@@ -10,7 +10,7 @@ export async function getBase64(imageUrl: string | null) {
   }
 }
 
-export async function getPitches() {
+export async function getPitches(query: string | undefined) {
   const supabase = await createClient();
   //  1, check if the data the user is trying to mutate is his
   const {
@@ -23,7 +23,15 @@ export async function getPitches() {
 
   // 4. Getting data
 
-  const { data: pitches, error } = await supabase.from("pitches").select(`*`);
+  let supabaseQuery = supabase.from("pitches").select("*");
+
+  if (query) {
+    supabaseQuery = supabaseQuery.or(
+      `author_name.ilike.%${query}%,title.ilike.%${query}%,category.ilike.%${query}%`
+    );
+  }
+
+  const { data: pitches, error } = await supabaseQuery;
 
   if (error) throw new Error(error.message);
 
