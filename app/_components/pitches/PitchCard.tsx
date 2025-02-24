@@ -4,24 +4,35 @@ import Image from "next/image";
 import { getBase64 } from "@/app/_lib/data-service";
 import { Pitch } from "@/app/_lib/supabase/server";
 import { getPitchCreatedTime } from "@/app/_lib/helper";
+import Link from "next/link";
+import editorIcon from "@/public/Vector.svg";
 
-export default async function PitchCard({ pitch }: { pitch: Pitch }) {
+interface PitchCardProps {
+  pitch: Pitch;
+  cardType?: string;
+}
+
+export default async function PitchCard({ pitch, cardType }: PitchCardProps) {
   const baseAvatarImageUrl = await getBase64(pitch?.author_avatar);
 
   const basePitchImageUrl = await getBase64(pitch?.media_link);
 
   return (
-    <div className="pitch-card  group">
+    <div className="pitch-card flex-none group">
       {/* date, views */}
       <div className="flex items-center justify-between">
         <p className="pitch-card-text-1 bg-color-primary-fade rounded-[70px] p-2 md:p-2.5 w-fit group-hover:bg-white transition-colors duration-300 ease-in">
           {getPitchCreatedTime(pitch?.created_at)}
         </p>
 
-        <div className="flex items-center gap-1">
-          <Eye className="text-color-primary size-5 md:size-6" />
-          <p className="pitch-card-text-1">{pitch?.views}</p>
-        </div>
+        {cardType === "similar" ? (
+          <Image src={editorIcon} alt="editor" quality={100} />
+        ) : (
+          <div className="flex items-center gap-1">
+            <Eye className="text-color-primary size-5 md:size-6" />
+            <p className="pitch-card-text-1">{pitch?.views}</p>
+          </div>
+        )}
       </div>
 
       {/* pitch owner */}
@@ -72,7 +83,9 @@ export default async function PitchCard({ pitch }: { pitch: Pitch }) {
       <div className="flex items-center justify-between mt-5">
         <p className="pitch-card-text-1">{pitch?.category}</p>
 
-        <button className="pitch-card-details-btn">Details</button>
+        <Link href={`/pitch/${pitch?.id}`}>
+          <button className="pitch-card-details-btn">Details</button>
+        </Link>
       </div>
     </div>
   );

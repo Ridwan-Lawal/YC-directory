@@ -120,4 +120,39 @@ export async function submitPitchAction(
   };
 }
 
-// start adding the pitch to supabase
+// Increasing views
+export async function increaseViewAction({
+  pitchId,
+  currentViews,
+}: {
+  pitchId: string;
+  currentViews: number;
+}) {
+  const supabase = await createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return {
+      success: false,
+      message: "You need to be signed in to view this post!",
+    };
+  }
+
+  const { error } = await supabase
+    .from("pitches")
+    .update({ views: currentViews + 1 })
+    .eq("id", pitchId)
+    .select();
+
+  if (error) {
+    return {
+      success: false,
+      message: error.message,
+    };
+  }
+
+  revalidatePath("/pitch");
+}

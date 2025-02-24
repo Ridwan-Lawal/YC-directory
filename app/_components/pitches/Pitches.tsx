@@ -1,4 +1,3 @@
-import PitchCard from "@/app/_components/pitches/PitchCard";
 import PitchesBlock from "@/app/_components/pitches/PitchesBlock";
 import React, { Suspense } from "react";
 

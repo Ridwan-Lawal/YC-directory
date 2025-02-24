@@ -37,3 +37,65 @@ export async function getPitches(query: string | undefined) {
 
   return pitches;
 }
+
+export async function getPitchById(pitchId: string) {
+  const supabase = await createClient();
+  //Step 1 - Checking if user is logged in
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    throw new Error("You must be signed it to get this data!");
+  }
+
+  // Step 4 - Getting data
+  const { data: pitch, error } = await supabase
+    .from("pitches")
+    .select("*")
+    .eq("id", pitchId);
+
+  if (error) throw new Error(error.message);
+
+  return pitch;
+}
+
+export async function getPitchByCategory({
+  pitchCategory,
+  pitchId,
+}: {
+  pitchCategory: string | null;
+  pitchId: string;
+}) {
+  //  step 1, check if user is signed in.
+  const supabase = await createClient();
+
+  // step 4. Getting data,
+  let supabaseQuery = supabase.from("pitches").select("*");
+
+  if (pitchCategory) {
+    supabaseQuery = supabaseQuery
+      .eq("category", pitchCategory)
+      .neq("id", pitchId);
+  }
+
+  const { data: startups, error } = await supabaseQuery;
+
+  if (error) throw new Error(error.message);
+
+  return startups;
+}
+
+export async function convertImageToBase64(imageUrl: string | null) {
+  if (imageUrl) {
+    try {
+      const res = await fetch(imageUrl);
+      const buffer = await res.arrayBuffer();
+      const { base64 } = await getPlaiceholder(Buffer.from(buffer));
+      return base64;
+    } catch (error) {
+      console.error("Error generating base64:", error);
+      return null;
+    }
+  }
+}
