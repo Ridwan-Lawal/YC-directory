@@ -59,3 +59,43 @@ export async function getPitchById(pitchId: string) {
 
   return pitch;
 }
+
+export async function getPitchByCategory({
+  pitchCategory,
+  pitchId,
+}: {
+  pitchCategory: string | null;
+  pitchId: string;
+}) {
+  //  step 1, check if user is signed in.
+  const supabase = await createClient();
+
+  // step 4. Getting data,
+  let supabaseQuery = supabase.from("pitches").select("*");
+
+  if (pitchCategory) {
+    supabaseQuery = supabaseQuery
+      .eq("category", pitchCategory)
+      .neq("id", pitchId);
+  }
+
+  const { data: startups, error } = await supabaseQuery;
+
+  if (error) throw new Error(error.message);
+
+  return startups;
+}
+
+export async function convertImageToBase64(imageUrl: string | null) {
+  if (imageUrl) {
+    try {
+      const res = await fetch(imageUrl);
+      const buffer = await res.arrayBuffer();
+      const { base64 } = await getPlaiceholder(Buffer.from(buffer));
+      return base64;
+    } catch (error) {
+      console.error("Error generating base64:", error);
+      return null;
+    }
+  }
+}

@@ -55,7 +55,7 @@
 
   /* pitch card */
   .pitch-card {
-    @apply mx-auto w-full max-w-[320px] py-6 flex flex-col justify-center px-5 rounded-[22px] border-4 border-black shadow-pitch-card  bg-white hover:bg-color-primary-fade hover:border-color-primary hover:shadow-color-primary cursor-pointer transition-colors  ease-in;
+    @apply w-full max-w-[320px] py-6 flex flex-col justify-center px-5 rounded-[22px] border-4 border-black shadow-pitch-card  bg-white hover:bg-color-primary-fade hover:border-color-primary hover:shadow-color-primary cursor-pointer transition-colors  ease-in;
   }
 
   .pitch-card-text-1 {
@@ -92,5 +92,14 @@
 
   .triangle-2 {
     clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }

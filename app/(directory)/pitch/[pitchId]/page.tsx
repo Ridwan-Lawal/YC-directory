@@ -19,10 +19,12 @@ export async function generateMetadata({ params }: Params) {
 
 export default async function Page({ params }: Params) {
   const query = await params;
+  const pitch = await getPitchById(query?.pitchId);
 
   return (
     <div>
-      <Header />
+      <Header pitchDetails={pitch[0]} />
+
       <Suspense fallback={<div>Loading...</div>} key={query?.pitchId}>
         <PitchDetails pitchId={query?.pitchId} />
       </Suspense>
