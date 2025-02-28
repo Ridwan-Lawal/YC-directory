@@ -1,4 +1,5 @@
 import PitchesBlock from "@/app/_components/pitches/PitchesBlock";
+import PitchCardSkeleton from "@/app/_ui/PitchCardSkeleton";
 import React, { Suspense } from "react";
 
 export default function pitches({ query }: { query: string }) {
@@ -9,7 +10,14 @@ export default function pitches({ query }: { query: string }) {
           Recommended startups
         </h3>
       </div>
-      <Suspense fallback={<div>Loading... </div>} key={query}>
+      <Suspense
+        fallback={
+          <div className="grid items-center  gap-7 sml:grid-cols-2 sm:max-w-[700px] lg:max-w-[1280px] mx-auto lg:grid-cols-3 xl:grid-cols-4">
+            <PitchCardSkeleton />{" "}
+          </div>
+        }
+        key={query}
+      >
         <PitchesBlock query={query} />
       </Suspense>
     </div>

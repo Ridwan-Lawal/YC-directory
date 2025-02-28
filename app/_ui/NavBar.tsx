@@ -19,16 +19,18 @@ export default function NavBar({ userAvatar }: NavProps) {
     <nav>
       <div className="first-div">
         <div className="flex items-center justify-between w-full  md:px-0">
-          <div className="relative h-[50px] w-[150px]  border">
-            <Image
-              src={logo}
-              alt="logo"
-              quality={100}
-              priority={true}
-              fill
-              className="object-contain"
-            />
-          </div>
+          <Link href="/">
+            <div className="relative h-[50px] w-[150px]  border">
+              <Image
+                src={logo}
+                alt="logo"
+                quality={100}
+                priority={true}
+                fill
+                className="object-contain"
+              />
+            </div>
+          </Link>
 
           <button
             onClick={onToggleNav}

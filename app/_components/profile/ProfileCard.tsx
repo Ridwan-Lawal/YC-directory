@@ -1,3 +1,4 @@
+import { getBase64 } from "@/app/_lib/data-service";
 import { createClient } from "@/app/_lib/supabase/server";
 import Image from "next/image";
 import React from "react";
@@ -9,6 +10,8 @@ export default async function ProfileCard() {
   const {
     data: { user },
   } = userData ?? {};
+
+  const avatarBaseUrl = await getBase64(user?.user_metadata?.avatar_url);
 
   return (
     <div className="bg-color-primary border-[5px] border-black rounded-[30px] flex flex-col items-center gap-3 px-5 pb-6 ">
@@ -31,6 +34,8 @@ export default async function ProfileCard() {
               alt="avatar"
               fill
               className="object-cover"
+              placeholder={avatarBaseUrl ? "blur" : "empty"}
+              blurDataURL={avatarBaseUrl}
             />
           </div>
         </div>
