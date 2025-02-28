@@ -99,3 +99,28 @@ export async function convertImageToBase64(imageUrl: string | null) {
     }
   }
 }
+
+export async function getAuthorsStartupOnly() {
+  const supabase = await createClient();
+  //  check if user is signed in
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    throw new Error("You need to be signed in to get this data!");
+  }
+
+  // Getting users data
+
+  const { data, error } = await supabase
+    .from("pitches")
+    .select("*")
+    .eq("userId", user?.id);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data;
+}

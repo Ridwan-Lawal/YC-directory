@@ -62,7 +62,7 @@ export default async function PitchCard({ pitch, cardType }: PitchCardProps) {
       </div>
 
       {/* pitch description */}
-      <p className="text-sm md:text-base text-[#333333] mt-2 ">
+      <p className="text-sm md:text-base text-[#333333] mt-2 border h-[80px] ">
         {pitch?.description?.split(" ").slice(0, 15).join(" ") + "..."}
       </p>
 

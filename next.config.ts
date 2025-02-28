@@ -1,11 +1,8 @@
 import type { NextConfig } from "next";
 
-
-
-
 const nextConfig: NextConfig = {
   /* config options here */
-  transpilePackages: ['@uiw/react-markdown-editor'],
+  transpilePackages: ["@uiw/react-markdown-editor"],
   images: {
     remotePatterns: [
       {
@@ -25,6 +22,15 @@ const nextConfig: NextConfig = {
         hostname: "waogsjzgfpckyxxbugfn.supabase.co",
         port: "",
         pathname: "/storage/v1/object/avatar/**",
+      },
+
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+      {
+        protocol: "http",
+        hostname: "**",
       },
     ],
   },
