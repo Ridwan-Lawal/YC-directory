@@ -5,18 +5,17 @@ import PitchDetails from "@/app/_components/pitchDetails/PitchDetails";
 import Header from "@/app/_components/pitchDetails/Header";
 import PitchDetailsSkeleton from "@/app/_ui/PitchDetailsSkeleton";
 
-type Params = {
+interface Param {
   params: Promise<{ pitchId: string }>;
-};
-
-export async function generateMetadata({ params }: Params) {
+}
+export async function generateMetadata({ params }: Param) {
   const query = await params;
   const pitch = await getPitchById(query?.pitchId);
 
   return { title: pitch?.at(0)?.title };
 }
 
-export default async function Page({ params }: Params) {
+export default async function Page({ params }: Param) {
   const query = await params;
   const pitch = await getPitchById(query?.pitchId);
 
