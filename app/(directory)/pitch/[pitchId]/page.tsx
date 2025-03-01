@@ -6,9 +6,7 @@ import Header from "@/app/_components/pitchDetails/Header";
 import PitchDetailsSkeleton from "@/app/_ui/PitchDetailsSkeleton";
 
 type Params = {
-  params: {
-    pitchId: string;
-  };
+  params: Promise<{ pitchId: string }>;
 };
 
 export async function generateMetadata({ params }: Params) {
