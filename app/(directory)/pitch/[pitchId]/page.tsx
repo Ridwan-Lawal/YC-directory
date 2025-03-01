@@ -3,6 +3,7 @@ import React, { Suspense } from "react";
 import { getPitchById } from "@/app/_lib/data-service";
 import PitchDetails from "@/app/_components/pitchDetails/PitchDetails";
 import Header from "@/app/_components/pitchDetails/Header";
+import PitchDetailsSkeleton from "@/app/_ui/PitchDetailsSkeleton";
 
 type Params = {
   params: {
@@ -25,7 +26,7 @@ export default async function Page({ params }: Params) {
     <div>
       <Header pitchDetails={pitch[0]} />
 
-      <Suspense fallback={<div>Loading...</div>} key={query?.pitchId}>
+      <Suspense fallback={<PitchDetailsSkeleton />} key={query?.pitchId}>
         <PitchDetails pitchId={query?.pitchId} />
       </Suspense>
     </div>

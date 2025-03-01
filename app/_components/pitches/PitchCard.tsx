@@ -48,7 +48,7 @@ export default async function PitchCard({ pitch, cardType }: PitchCardProps) {
         </div>
 
         {/* pitch owner avatar */}
-        <div className="relative size-10 border rounded-full overflow-hidden">
+        <div className="relative size-10  rounded-full overflow-hidden">
           <Image
             src={pitch?.author_avatar as string}
             alt="avatar"
@@ -62,7 +62,7 @@ export default async function PitchCard({ pitch, cardType }: PitchCardProps) {
       </div>
 
       {/* pitch description */}
-      <p className="text-sm md:text-base text-[#333333] mt-2 ">
+      <p className="text-sm md:text-base text-[#333333] mt-2  h-[80px] ">
         {pitch?.description?.split(" ").slice(0, 15).join(" ") + "..."}
       </p>
 

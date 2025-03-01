@@ -35,7 +35,6 @@ export default function StartupViews({
           table: "pitches",
         },
         (payload) => {
-          console.log(payload?.new?.views);
           setViews(payload?.new?.views as number);
         }
       )
@@ -47,7 +46,7 @@ export default function StartupViews({
   }, []);
 
   return (
-    <p className="bg-color-primary-fade py-1.5 px-6 rounded-[70px] gap-[10px] md:text-lg font-medium flex items-center bottom-8 text-sm right-8 fixed  ">
+    <p className="views ">
       {views} <span> Views</span>
     </p>
   );

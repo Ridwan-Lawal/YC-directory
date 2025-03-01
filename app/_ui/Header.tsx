@@ -7,10 +7,10 @@ import searchIcon from "@/public/search.png";
 
 export default function Header() {
   return (
-    <header className="relative h-[400px] md:h-[561px] border border-green-700 bg-color-primary flex items-center justify-center px-8">
+    <header className="relative h-[400px] md:h-[561px]   bg-color-primary flex items-center justify-center px-8">
       <Image src={headerTile} alt="tile" fill className="object-cover" />
 
-      <div className="border-2 border-blue-700 absolute space-y-[26px] md:space-y-[32px] px-8">
+      <div className=" absolute space-y-[26px] md:space-y-[32px] px-8">
         {/* pitch vote and grow */}
         <div className="flex flex-col items-center">
           <div className="relative w-[200px] h-[50px] md:w-[271px] md:h-[45px]">

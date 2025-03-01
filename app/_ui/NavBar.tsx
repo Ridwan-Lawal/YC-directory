@@ -19,16 +19,18 @@ export default function NavBar({ userAvatar }: NavProps) {
     <nav>
       <div className="first-div">
         <div className="flex items-center justify-between w-full  md:px-0">
-          <div className="relative h-[50px] w-[150px]  border">
-            <Image
-              src={logo}
-              alt="logo"
-              quality={100}
-              priority={true}
-              fill
-              className="object-contain"
-            />
-          </div>
+          <Link href="/">
+            <div className="relative h-[50px] w-[150px]  ">
+              <Image
+                src={logo}
+                alt="logo"
+                quality={100}
+                priority={true}
+                fill
+                className="object-contain"
+              />
+            </div>
+          </Link>
 
           <button
             onClick={onToggleNav}
@@ -55,7 +57,7 @@ export default function NavBar({ userAvatar }: NavProps) {
 
           <Link href="/profile">
             <div className="flex items-center gap-5 group">
-              <div className="relative h-10 w-10 md:h-9 md:w-9 rounded-full  border overflow-hidden">
+              <div className="relative h-10 w-10 md:h-9 md:w-9 rounded-full   overflow-hidden">
                 <Image
                   src={userAvatar}
                   alt="avatar"

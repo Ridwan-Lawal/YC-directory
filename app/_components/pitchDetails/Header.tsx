@@ -17,7 +17,7 @@ export default function Header({ pitchDetails }: { pitchDetails: Pitch }) {
       />
 
       {/* content */}
-      <div className="absolute flex flex-col items-center  justify-center border">
+      <div className="absolute flex flex-col items-center  justify-center ">
         {/* created date */}
 
         <PitchDate />

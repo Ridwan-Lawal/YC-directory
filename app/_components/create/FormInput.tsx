@@ -7,7 +7,6 @@ interface FormInputProps {
 }
 
 export default function FormInput({ children, label, error }: FormInputProps) {
-  console.log(children);
   return (
     <fieldset className="flex flex-col gap-3">
       <div className="flex items-center justify-between">

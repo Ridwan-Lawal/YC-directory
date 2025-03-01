@@ -13,7 +13,7 @@ export default async function SimilarStartups({
 }: SimilarStartups) {
   const startups = await getPitchByCategory({ pitchCategory, pitchId });
   return (
-    <div className="flex justify-start border overflow-auto gap-8 py-5 no-scrollbar">
+    <div className="flex justify-start  overflow-auto gap-8 py-5 no-scrollbar">
       {startups?.map((startup) => (
         <PitchCard key={startup?.id} cardType="similar" pitch={startup} />
       ))}
