@@ -94,7 +94,6 @@ export async function convertImageToBase64(imageUrl: string | null) {
       const { base64 } = await getPlaiceholder(Buffer.from(buffer));
       return base64;
     } catch (error) {
-      console.error("Error generating base64:", error);
       return null;
     }
   }

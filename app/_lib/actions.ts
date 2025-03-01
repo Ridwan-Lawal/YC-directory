@@ -76,7 +76,6 @@ export async function submitPitchAction(
   // 3 Build the data and ensure the input are safe
   const pitchData = Object.fromEntries(formData.entries());
 
-  console.log(pitchData);
   const {
     data: pitchValData,
     success: pitchValSuccess,

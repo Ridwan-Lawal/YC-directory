@@ -92,15 +92,15 @@
 
   /* nav */
   nav {
-    @apply bg-white border h-[50px] flex items-center md:h-[80px];
+    @apply bg-white  h-[50px] flex items-center md:h-[80px];
   }
 
   nav .first-div {
-    @apply flex items-center justify-between w-full flex-wrap md:flex-nowrap max-w-[1300px] mx-auto px-4 border border-green-500 md:px-6;
+    @apply flex items-center justify-between w-full flex-wrap md:flex-nowrap max-w-[1300px] mx-auto px-4  md:px-6;
   }
 
   nav ul {
-    @apply border w-full bg-white  fixed  top-0 h-screen flex flex-col md:flex-row  gap-16 md:gap-9 justify-center items-center overflow-hidden md:static md:h-fit md:w-full md:flex-grow md:justify-end;
+    @apply  w-full bg-white  fixed  top-0 h-screen flex flex-col md:flex-row  gap-16 md:gap-9 justify-center items-center overflow-hidden md:static md:h-fit md:w-full md:flex-grow md:justify-end;
   }
   nav ul li {
     @apply font-medium text-xl md:text-xl leading-[23.46px] tracking-[-3%] cursor-pointer;
@@ -135,6 +135,10 @@
   }
   .create .error-msg {
     @apply text-color-primary italic text-xs font-medium;
+  }
+
+  .views {
+    @apply bg-color-primary-fade py-1.5 px-6 rounded-[70px] gap-[10px] md:text-lg font-medium flex items-center bottom-8 text-sm right-8 fixed;
   }
 }
 

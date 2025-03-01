@@ -27,7 +27,7 @@ export default async function ProfileCard() {
         {/* avatar */}
 
         <div className="p-2 rounded-full bg-white border-[3px] border-black relative  overflow-hidden w-fit ">
-          <div className="relative border border-green-800 h-[220px] w-[220px] overflow-hidden rounded-full">
+          <div className="relative h-[220px] w-[220px] overflow-hidden rounded-full">
             {" "}
             <Image
               src={user?.user_metadata?.avatar_url}

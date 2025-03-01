@@ -14,7 +14,7 @@ export default function ProfileCardSkeleton() {
         {/* avatar */}
 
         <Skeleton className="p-2 rounded-full bg-white border-[3px] border-black relative  overflow-hidden w-fit ">
-          <Skeleton className="relative border border-green-800 h-[220px] w-[220px] overflow-hidden rounded-full">
+          <Skeleton className="relative h-[220px] w-[220px] overflow-hidden rounded-full">
             {" "}
             <Skeleton />
           </Skeleton>
