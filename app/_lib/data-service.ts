@@ -88,14 +88,10 @@ export async function getPitchByCategory({
 
 export async function convertImageToBase64(imageUrl: string | null) {
   if (imageUrl) {
-    try {
-      const res = await fetch(imageUrl);
-      const buffer = await res.arrayBuffer();
-      const { base64 } = await getPlaiceholder(Buffer.from(buffer));
-      return base64;
-    } catch (error) {
-      return null;
-    }
+    const res = await fetch(imageUrl);
+    const buffer = await res.arrayBuffer();
+    const { base64 } = await getPlaiceholder(Buffer.from(buffer));
+    return base64;
   }
 }
 
